@@ -124,7 +124,7 @@ const StyledSlider = withStyles({
 
 function MaskSlider(props) {
     const classes = useStyles();
-    const [value, setValue] = React.useState(30);
+    const [value, setValue] = React.useState(25);
 
     const handleSliderChange = (event, newValue) => {
         setValue(newValue);
@@ -174,6 +174,7 @@ function MaskSlider(props) {
                 <Grid item xs={12}>
                     <StyledSlider
                         value={typeof value === 'number' ? value : 0}
+                        step={25}
                         onChange={handleSliderChange}
                         aria-labelledby="input-slider"
                     />
@@ -184,7 +185,7 @@ function MaskSlider(props) {
 }
 function CapacitySlider(props) {
     const classes = useStyles();
-    const [value, setValue] = React.useState(30);
+    const [value, setValue] = React.useState(25);
 
     const handleSliderChange = (event, newValue) => {
         setValue(newValue);
@@ -234,6 +235,7 @@ function CapacitySlider(props) {
                 <Grid item xs={12}>
                     <StyledSlider
                         value={typeof value === 'number' ? value : 0}
+                        step={25}
                         onChange={handleSliderChange}
                         aria-labelledby="input-slider"
                     />
@@ -245,7 +247,7 @@ function CapacitySlider(props) {
 
 function MassSlider(props) {
     const classes = useStyles();
-    const [value, setValue] = React.useState(30);
+    const [value, setValue] = React.useState(25);
 
     const handleSliderChange = (event, newValue) => {
         setValue(newValue);
@@ -295,6 +297,7 @@ function MassSlider(props) {
                 <Grid item xs={12}>
                     <StyledSlider
                         value={typeof value === 'number' ? value : 0}
+                        step={25}
                         onChange={handleSliderChange}
                         aria-labelledby="input-slider"
                     />
@@ -383,7 +386,7 @@ function TargetedShutdown(props) {
 
 function VaccinationSlider(props) {
     const classes = useStyles();
-    const [value, setValue] = React.useState(30);
+    const [value, setValue] = React.useState(25);
 
     const handleSliderChange = (event, newValue) => {
         setValue(newValue);
@@ -433,6 +436,7 @@ function VaccinationSlider(props) {
                 <Grid item xs={12}>
                     <StyledSlider
                         value={typeof value === "number" ? value : 0}
+                        step={25}
                         onChange={handleSliderChange}
                         aria-labelledby="input-slider"
                     />

@@ -9,15 +9,15 @@ class GeneralSimulator extends Component {
     super();
     this.state = {
       configurations: {
-        maskPercent: 30,
-        capacityPercent: 30,
-        massPercent: 30,
+        maskPercent: 25,
+        capacityPercent: 25,
+        massPercent: 25,
         stayAtHome: false,
         schoolsShutdown: false,
         restaurantsShutdown: false,
         gymsShutdown: false,
         barsShutdown: false,
-        vaccinePercent: 30,
+        vaccinePercent: 25,
       }
     }
   }
