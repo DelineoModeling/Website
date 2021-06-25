@@ -84,11 +84,17 @@ const useStyles = makeStyles((theme) => ({
         fontSize: '1rem'
     },
     inputPercent: {
-        backgroundColor: "#606060",
+        backgroundColor: "#989898",
         color: "black",
         borderRadius: "50px",
-        width: "70px",
+        width: "6ch",
         height: "35px",
+        fontSize: "1rem",
+        paddingRight: '5%',
+        "& .MuiInputBase-input.Mui-disabled": {
+            color:  "black",
+            textAlign: 'center'
+        }
     },
     unitText: {
         color: "black"
@@ -171,7 +177,6 @@ function MaskSlider(props) {
                             step: 25,
                             min: 0,
                             max: 100,
-                            type: 'number',
                             'aria-labelledby': 'input-slider',
                         }}
                     />
@@ -233,7 +238,6 @@ function CapacitySlider(props) {
                             step: 25,
                             min: 0,
                             max: 100,
-                            type: 'number',
                             'aria-labelledby': 'input-slider',
                         }}
                     />
@@ -296,7 +300,6 @@ function MassSlider(props) {
                             step: 25,
                             min: 0,
                             max: 100,
-                            type: 'number',
                             'aria-labelledby': 'input-slider',
                         }}
                     />
@@ -436,7 +439,6 @@ function VaccinationSlider(props) {
                             step: 25,
                             min: 0,
                             max: 100,
-                            type: "number",
                             "aria-labelledby": "input-slider"
                         }}
                     />
