@@ -24,7 +24,9 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: 'rgba(49,53,56,255)',
         paddingTop: '1%',
         paddingBottom: '1%',
-        borderRadius: '5px'
+        borderRadius: '5px',
+        fontSize: '1.2rem',
+        marginBottom: '2%',
     },
     panelSection: {
         textAlign: 'left',
@@ -37,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: 'column',
         justifyContent: 'space-between',
         paddingTop: "2%",
-        width: "30%"
+        width: "30%",
     },
     switchBase: {
         color: "rgba(49,53,56,255)",
@@ -55,13 +57,14 @@ const useStyles = makeStyles((theme) => ({
     },
     sliderText: {
         color: "black",
-        fontSize: "0.8rem",
+        fontSize: "1.1rem",
         paddingLeft: "0",
         alignItems: "bottom"
     },
     switchText: {
         color: "black",
         paddingLeft: "0",
+        fontSize: "1.1rem"
     },
     gridItemRight: {
         textAlign: "right"
@@ -78,6 +81,7 @@ const useStyles = makeStyles((theme) => ({
         '&:hover': {
             backgroundColor: 'rgba(93, 96, 99)',
         },
+        fontSize: '1rem'
     },
     inputPercent: {
         backgroundColor: "#606060",
@@ -147,23 +151,24 @@ function MaskSlider(props) {
     return (
         <div >
             <Grid container direction="row" alignItems="center">
-                <Grid item xs={6}>
+                <Grid item xs={9}>
                     <Typography className={classes.sliderText}>
                         Mask-Wearing
                     </Typography>
                 </Grid>
-                <Grid item xs={6} className={classes.gridItemRight}>
+                <Grid item xs={3} className={classes.gridItemRight}>
                     <Input
                         className={classes.inputPercent}
                         value={value}
                         onChange={handleInputChange}
                         onBlur={handleBlur}
+                        disabled={true}
                         disableUnderline={true}
                         fullWidth={true}
                         endAdornment={<InputAdornment position="end"><div className={classes.unitText}>%</div></InputAdornment>}
                         inputProps={{
                             style: {textAlign: 'right'}, 
-                            step: 1,
+                            step: 25,
                             min: 0,
                             max: 100,
                             type: 'number',
@@ -208,23 +213,24 @@ function CapacitySlider(props) {
     return (
         <div>
             <Grid container direction="row" alignItems="center">
-                <Grid item xs={6}>
+                <Grid item xs={9}>
                     <Typography className={classes.sliderText}>
                         Capacity Restrictions
                     </Typography>
                 </Grid>
-                <Grid item xs={6} className={classes.gridItemRight}>
+                <Grid item xs={3} className={classes.gridItemRight}>
                     <Input
                         className={classes.inputPercent}
                         value={value}
                         onChange={handleInputChange}
                         onBlur={handleBlur}
+                        disabled={true}
                         disableUnderline={true}
                         fullWidth={true}
                         endAdornment={<InputAdornment position="end"><div className={classes.unitText}>%</div></InputAdornment>}
                         inputProps={{
                             style:{textAlign:"right"},
-                            step: 1,
+                            step: 25,
                             min: 0,
                             max: 100,
                             type: 'number',
@@ -270,23 +276,24 @@ function MassSlider(props) {
     return (
         <div>
             <Grid container direction="row" alignItems="center">
-                <Grid item xs={6}>
+                <Grid item xs={9}>
                     <Typography className={classes.sliderText} >
                         Mass Testing
                     </Typography>
                 </Grid>
-                <Grid item xs={6} className={classes.gridItemRight}>
+                <Grid item xs={3} className={classes.gridItemRight}>
                     <Input
                         className={classes.inputPercent}
                         value={value}
                         onChange={handleInputChange}
                         onBlur={handleBlur}
                         disableUnderline={true}
+                        disabled={true}
                         fullWidth={true}
                         endAdornment={<InputAdornment position="end"><div className={classes.unitText}>%</div></InputAdornment>}
                         inputProps={{
                             style:{textAlign:"right"},
-                            step: 1,
+                            step: 25,
                             min: 0,
                             max: 100,
                             type: 'number',
@@ -319,12 +326,12 @@ function StayAtHome(props) {
 
     return (
         <Grid container direction="row" justify="space-between" alignItems="center">
-            <Grid item xs={8}>
+            <Grid item xs={9}>
                 <Typography className={classes.switchText}>
                     Stay-at-Home Order
                 </Typography>
             </Grid>
-            <Grid item xs={4} className={classes.gridItemRight}>
+            <Grid item xs={3} className={classes.gridItemRight}>
                 <Switch checked={state.Home} classes={{ track: classes.switchTrack, switchBase: classes.switchBase }} onChange={handleChange} name="stayAtHome" />
             </Grid>
         </Grid>
@@ -409,23 +416,24 @@ function VaccinationSlider(props) {
     return (
         <div>
             <Grid container direction="row" justify="space-between" alignItems="center">
-                <Grid item xs={6}>
+                <Grid item xs={9}>
                     <Typography className={classes.sliderText}>
                         Vaccinated Population
                     </Typography>
                 </Grid>
-                <Grid item xs={6} className={classes.gridItemRight}>
+                <Grid item xs={3} className={classes.gridItemRight}>
                     <Input
                         className={classes.inputPercent}
                         value={value}
                         onChange={handleInputChange}
                         onBlur={handleBlur}
                         disableUnderline={true}
+                        disabled={true}
                         fullWidth={true}
                         endAdornment={<InputAdornment position="end"><div className={classes.unitText}>%</div></InputAdornment>}
                         inputProps={{
                             style:{textAlign:"right"},
-                            step: 1,
+                            step: 25,
                             min: 0,
                             max: 100,
                             type: "number",
