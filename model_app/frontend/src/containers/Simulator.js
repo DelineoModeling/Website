@@ -12,6 +12,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import {Button} from "@material-ui/core"
+import Graphs from "../components/Graphs"
 
 
 const unityContext = new UnityContext({
@@ -322,6 +323,9 @@ class Simulator extends Component {
             </div>
           </div>
         </Grid>
+
+        {/*remove the line below for final commit */}
+        <Graphs></Graphs>
       </div>
     );
   }
