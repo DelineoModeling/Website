@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withStyles } from "@material-ui/core/styles";
 import axios from "axios";
 import * as d3 from 'd3';
-import BarChart from "./SimuLineChart";
+import LineChart from "./SimuLineChart";
 
 const styles = (theme) => ({
     poisWrapper: {
@@ -18,7 +18,7 @@ var getData = () => {
     var data = {};
 
     axios
-        .get(`./simulations/${jobId}`, {
+        .get(`./simulations/`, {
             params: {
                 year: '2020'
             }
@@ -132,7 +132,7 @@ class Graphs extends Component {
                     ref={el => this.svgEl = el} >
                 </svg>
                 <div><button onClick={this.handleClick}>Update</button></div>
-                <BarChart data={data}/>
+                <LineChart data={data}/>
             </div>
 
         )

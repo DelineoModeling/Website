@@ -2,7 +2,7 @@ import { useD3 } from './useD3';
 import React from 'react';
 import * as d3 from 'd3';
 
-function BarChart(props) {
+function LineChart(props) {
     var data = props.data
     const ref = useD3(
         (svg) => {
@@ -16,9 +16,12 @@ function BarChart(props) {
                 .rangeRound([margin.left, width - margin.right])
                 .padding(0.1);
 
+            const min = d3.min(data, (d) => d.sales);
+            const max = d3.max(data, (d) => d.sales)
+
             const y1 = d3
                 .scaleLinear()
-                .domain([0, d3.max(data, (d) => d.sales)])
+                .domain([0.9 * min, 1.1 * max])
                 .rangeRound([height - margin.bottom, margin.top]);
 
             const xAxis = (g) =>
@@ -36,7 +39,7 @@ function BarChart(props) {
             const y1Axis = (g) =>
                 g
                     .attr("transform", `translate(${margin.left},0)`)
-                    .style("color", "steelblue")
+                    .style("color", "#66FCF1")
                     .call(d3.axisLeft(y1).ticks(null, "s"))
                     .call((g) => g.select(".domain").remove())
                     .call((g) =>
@@ -52,6 +55,19 @@ function BarChart(props) {
             svg.select(".x-axis").call(xAxis);
             svg.select(".y-axis").call(y1Axis);
 
+
+            svg
+                .append("path")
+                .datum(data)
+                .attr("fill", "none")
+                .attr("stroke", "#66FCF1")
+                .attr("stroke-width", 1.5)
+                .attr("d", d3.line()
+                    .x(function(d) { return x(d.year) })
+                    .y(function(d) { return y1(d.sales) })
+                );
+
+            /*
             svg
                 .select(".plot-area")
                 .attr("fill", "steelblue")
@@ -63,6 +79,7 @@ function BarChart(props) {
                 .attr("width", x.bandwidth())
                 .attr("y", (d) => y1(d.sales))
                 .attr("height", (d) => y1(0) - y1(d.sales));
+            */
         },
         [data.length]
     );
@@ -84,4 +101,4 @@ function BarChart(props) {
     );
 }
 
-export default BarChart;
+export default LineChart;
