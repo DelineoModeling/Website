@@ -3,7 +3,7 @@ import { withStyles } from "@material-ui/core/styles";
 import axios from "axios";
 import CumulativeChart from "./CumulativeChart";
 import DailyChart from "./DailyChart"
-import { curveLinear } from 'd3-shape';
+import PieChart from './PieChart';
 
 const styles = (theme) => ({
 });
@@ -28,14 +28,28 @@ var getData = () => {
     //         }
     //     });
     // return data;
-    data = [   //copied dummy data for now
+
+    //copied dummy data for now
+    data = [   
         {
-            case_distribution: {
-                school: '',
-                restaurant: '',
-                gym: '',
-                bar: ''
-            },
+            case_distribution: [
+                {
+                    label: 'school',
+                    value: 23
+                },
+                {
+                    label: 'restaurant',
+                    value: 10
+                },
+                {
+                    label: 'gym',
+                    value: 38
+                },
+                {
+                    label: 'bar',
+                    value: 29
+                }
+            ],
 
             initial_cases: 0,
 
@@ -132,6 +146,9 @@ var getData = () => {
 
 function getTotalCases(data) {
     var totalCount = data.initial_cases
+    Object.keys(data.case_distribution).forEach(function (key, i) {
+console.log(data.case_distribution[key])
+    })
     return data['data'].map((entry, i) => {
         totalCount += parseInt(entry['newcases'])
         entry['totalcases'] = totalCount
@@ -150,12 +167,13 @@ class Graphs extends Component {
     }
 
     render() {
-        const { data} = this.state;
+        const { data} = this.state; 
         const { classes } = this.props;
         return (
             <div>
                 <CumulativeChart data={data} />
                 <DailyChart data={data} />
+                <PieChart data={data[0].case_distribution} innerRadius={0} outerRadius={300}/>
             </div>
         )
     }
