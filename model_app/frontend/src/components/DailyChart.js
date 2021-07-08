@@ -74,7 +74,7 @@ function DailyChart(props) {
                 .attr("stroke-width", 1.5)
                 .attr("d", d3.line()
                     .x(function (d) {
-                        return x(d.date.day)
+                        return x(d.date.month + "/" + d.date.day + "/" + d.date.year)
                     })
                     .y(function (d) {
                         return y(d.newcases)
