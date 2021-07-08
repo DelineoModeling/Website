@@ -173,7 +173,7 @@ class Graphs extends Component {
             <div>
                 <CumulativeChart data={data} />
                 <DailyChart data={data} />
-                <PieChart data={data[0].case_distribution} innerRadius={0} outerRadius={300}/>
+                <PieChart data={data[0].case_distribution} innerRadius={100} outerRadius={300}/>
             </div>
         )
     }

@@ -38,6 +38,12 @@ function PieChart(props) {
       .attr('height', height)
       .append('g')
       .attr('transform', `translate(${width / 2}, ${height / 2})`);
+    
+    svg.append("text")
+    .attr("x", 0)
+    .attr("y", 0 - height/2 +margin.top -20).style('fill', 'white').style("text-anchor", "middle")
+    .style("font-family", "Montserrat").text("Infection breakdown by facility");
+
 
     const arcGenerator = d3
       .arc()
@@ -67,7 +73,7 @@ function PieChart(props) {
       .append('text')
       .attr('text-anchor', 'middle')
       .attr('alignment-baseline', 'middle')
-      .text((d) => d.data.label)
+      .text((d) => `${d.data.label}: ${d.data.value}%`)
       .style('fill', '#fff')
       .attr('transform', (d) => {
         const [x, y] = arcGenerator.centroid(d);
