@@ -4,6 +4,7 @@ import axios from "axios";
 import CumulativeChart from "./CumulativeChart";
 import DailyChart from "./DailyChart"
 import PieChart from './PieChart';
+import Graph4 from './Graph4'
 
 const styles = (theme) => ({
 });
@@ -174,6 +175,7 @@ class Graphs extends Component {
                 <CumulativeChart data={data} />
                 <DailyChart data={data} />
                 <PieChart data={data[0].case_distribution} innerRadius={100} outerRadius={300}/>
+                <Graph4 data={data}></Graph4>
             </div>
         )
     }
