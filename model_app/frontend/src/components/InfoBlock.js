@@ -21,7 +21,13 @@ const useStyles = makeStyles((theme) => ({
         padding: '20px 50px',
         color: 'white',
         maxWidth: '1500px',
-        margin: 'auto'
+        margin: 'auto',
+        
+        //Styling for screen size less than 550px
+        [theme.breakpoints.down('550')]: {
+            padding: '5px 5px 20px 5px',
+            fontSize: '15px'
+        },
     },
     img: {
         width: '70%',
@@ -32,6 +38,18 @@ const useStyles = makeStyles((theme) => ({
 
     gallery: {
         padding: '150px 50px 100px 50px',
+
+        [theme.breakpoints.down('550')]: {
+            padding: '50px 20px 0px 20px',
+        },
+    },
+
+    title: {
+        color: 'white',
+
+        [theme.breakpoints.down('550')]: {
+            fontSize: '2rem',
+        },
     },
 
     grid: {
@@ -76,7 +94,7 @@ export default function InfoBlock(props) {
     return (
         <div className={classes.base} style={{ backgroundColor: props.background }}>
             <div className={classes.gallery}>
-                <Typography variant="h3" component="h2" style={{ color: 'white' }}>
+                <Typography variant="h3" component="h2" className={classes.title}>
                     {title}
                 </Typography>
                 <div className={classes.border}></div>

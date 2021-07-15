@@ -17,6 +17,7 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Typography from "@material-ui/core/Typography";
+import Grid from "@material-ui/core/Grid";
 
 const styles = {
   
@@ -83,9 +84,10 @@ const styles = {
   flexContainer: {
     display: "flex",
     flexDirection: "row",
+    justifyContent: "center",
+    
     padding: 0,
 
-    backgroundColor: "#66FCF1",
     color: "#66FCF1",
 
     margin: "0 auto",
@@ -95,6 +97,10 @@ const styles = {
   clickedOn: {
     color: "#222629",
   },
+
+  gridItem: {
+    backgroundColor: "#66FCF1"
+  }
 };
 
 const ColorListItem = withStyles((theme) => ({
@@ -106,6 +112,7 @@ const ColorListItem = withStyles((theme) => ({
     fontWeight: "bold",
 
     width: "200px",
+    height: "76px",
     textAlign: "center",
 
     "&.Mui-selected, &$.Mui-selected:hover": {
@@ -164,149 +171,164 @@ class TeamFilter extends Component {
     return (
       <div>
         <br />
-        <div className={classes.flexContainer}>
+        <div>
           <List
             className={classes.flexContainer}
             component="nav"
             aria-label="all fs sim ml info"
           >
-            <ColorListItem
-              className={classes.root}
-              button
-              onClick={() =>
-                this.setState({
-                  all: true,
-                  fs: false,
-                  sim: false,
-                  ml: false,
-                  info: false,
-                })
-              }
-              selected={all}
-            >
-              <ListItemText
-                className={
-                  this.state.all ? classes.clickedOn : classes.selectedColor
-                }
-                primary={
-                  <Typography
-                    type="body2"
-                    style={{ fontWeight: "bold", fontSize: "16px" }}
-                  >
-                    All
-                  </Typography>
-                }
-              />
-            </ColorListItem>
+            <Grid container spacing={0} className={classes.flexContainer}>
+              <Grid item className={classes.gridItem}>
+                <ColorListItem
+                  className={classes.root}
+                  button
+                  onClick={() =>
+                    this.setState({
+                      all: true,
+                      fs: false,
+                      sim: false,
+                      ml: false,
+                      info: false,
+                    })
+                  }
+                  selected={all}
+                >
+                  <ListItemText
+                    className={
+                      this.state.all ? classes.clickedOn : classes.selectedColor
+                    }
+                    primary={
+                      <Typography
+                        type="body2"
+                        style={{ fontWeight: "bold", fontSize: "16px" }}
+                      >
+                        All
+                      </Typography>
+                    }
+                  />
+                </ColorListItem>
+              </Grid>
 
-            <ColorListItem
-              button
-              selected={fs}
-              onClick={() =>
-                this.setState({
-                  all: false,
-                  fs: true,
-                  sim: false,
-                  ml: false,
-                  info: false,
-                })
-              }
-            >
-              <ListItemText
-                className={
-                  this.state.fs ? classes.clickedOn : classes.selectedColor
-                }
-                primary={
-                  <Typography
-                    type="body2"
-                    style={{ fontWeight: "bold", fontSize: "16px" }}
-                  >
-                    Fullstack
-                  </Typography>
-                }
-              />
-            </ColorListItem>
-            <ColorListItem
-              button
-              selected={sim}
-              onClick={() =>
-                this.setState({
-                  all: false,
-                  fs: false,
-                  sim: true,
-                  ml: false,
-                  info: false,
-                })
-              }
-            >
-              <ListItemText
-                className={
-                  this.state.sim ? classes.clickedOn : classes.selectedColor
-                }
-                primary={
-                  <Typography
-                    type="body2"
-                    style={{ fontWeight: "bold", fontSize: "16px" }}
-                  >
-                    Simulation
-                  </Typography>
-                }
-              />
-            </ColorListItem>
-            <ColorListItem
-              button
-              selected={ml}
-              onClick={() =>
-                this.setState({
-                  all: false,
-                  fs: false,
-                  sim: false,
-                  ml: true,
-                  info: false,
-                })
-              }
-            >
-              <ListItemText
-                className={
-                  this.state.ml ? classes.clickedOn : classes.selectedColor
-                }
-                primary={
-                  <Typography
-                    type="body2"
-                    style={{ fontWeight: "bold", fontSize: "16px" }}
-                  >
-                    Machine Learning
-                  </Typography>
-                }
-              />
-            </ColorListItem>
-            <ColorListItem
-              button
-              selected={info}
-              onClick={() =>
-                this.setState({
-                  all: false,
-                  fs: false,
-                  sim: false,
-                  ml: false,
-                  info: true,
-                })
-              }
-            >
-              <ListItemText
-                className={
-                  this.state.info ? classes.clickedOn : classes.selectedColor
-                }
-                primary={
-                  <Typography
-                    type="body2"
-                    style={{ fontWeight: "bold", fontSize: "16px" }}
-                  >
-                    Information Support
-                  </Typography>
-                }
-              />
-            </ColorListItem>
+              <Grid item className={classes.gridItem}>
+                <ColorListItem
+                  button
+                  selected={fs}
+                  onClick={() =>
+                    this.setState({
+                      all: false,
+                      fs: true,
+                      sim: false,
+                      ml: false,
+                      info: false,
+                    })
+                  }
+                >
+                  <ListItemText
+                    className={
+                      this.state.fs ? classes.clickedOn : classes.selectedColor
+                    }
+                    primary={
+                      <Typography
+                        type="body2"
+                        style={{ fontWeight: "bold", fontSize: "16px" }}
+                      >
+                        Fullstack
+                      </Typography>
+                    }
+                  />
+                </ColorListItem>
+              </Grid>
+
+              <Grid item className={classes.gridItem}>
+                <ColorListItem
+                  button
+                  selected={sim}
+                  onClick={() =>
+                    this.setState({
+                      all: false,
+                      fs: false,
+                      sim: true,
+                      ml: false,
+                      info: false,
+                    })
+                  }
+                >
+                  <ListItemText
+                    className={
+                      this.state.sim ? classes.clickedOn : classes.selectedColor
+                    }
+                    primary={
+                      <Typography
+                        type="body2"
+                        style={{ fontWeight: "bold", fontSize: "16px" }}
+                      >
+                        Simulation
+                      </Typography>
+                    }
+                  />
+                </ColorListItem>
+              </Grid>
+
+              <Grid item className={classes.gridItem}>
+                <ColorListItem
+                  button
+                  selected={ml}
+                  onClick={() =>
+                    this.setState({
+                      all: false,
+                      fs: false,
+                      sim: false,
+                      ml: true,
+                      info: false,
+                    })
+                  }
+                >
+                  <ListItemText
+                    className={
+                      this.state.ml ? classes.clickedOn : classes.selectedColor
+                    }
+                    primary={
+                      <Typography
+                        type="body2"
+                        style={{ fontWeight: "bold", fontSize: "16px" }}
+                      >
+                        Machine Learning
+                      </Typography>
+                    }
+                  />
+                </ColorListItem>
+              </Grid>
+
+              <Grid item className={classes.gridItem}>
+                <ColorListItem
+                  button
+                  selected={info}
+                  onClick={() =>
+                    this.setState({
+                      all: false,
+                      fs: false,
+                      sim: false,
+                      ml: false,
+                      info: true,
+                    })
+                  }
+                >
+                  <ListItemText
+                    className={
+                      this.state.info ? classes.clickedOn : classes.selectedColor
+                    }
+                    primary={
+                      <Typography
+                        type="body2"
+                        style={{ fontWeight: "bold", fontSize: "16px" }}
+                      >
+                        Information Support
+                      </Typography>
+                    }
+                  />
+                </ColorListItem>
+              </Grid>
+            </Grid>
           </List>
         </div>
         {/*
