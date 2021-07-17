@@ -45,12 +45,13 @@ class Header extends Component{
         }
 
         return (
-            <Navbar expand="md" className="color">
+            <Navbar expand="md" className="color navbar-dark">
                 <div className="container">
-                <NavbarToggler onClick={this.toggleNav} />
                 <NavbarBrand className="mr-auto" href="/">
                     <img src={Logo} alt="Logo" width="200" height="65"></img>
                 </NavbarBrand>
+
+                <NavbarToggler onClick={this.toggleNav} />
                 <Collapse isOpen={this.state.isNavOpen} navbar>
                     <Nav navbar className="ml-auto">
 
