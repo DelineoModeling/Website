@@ -67,7 +67,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const post4url = "https://covidweb.isi.jhu.edu/developmentblog/Post4";
+const post4url = "https://covidweb.isi.jhu.edu/developmentblog/Wells-Riley-Equation";
 
 const message =
   "Check out this article from the Delineo Disease Modeling Project";

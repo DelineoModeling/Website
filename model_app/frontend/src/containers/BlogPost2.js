@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
   
-const post2url = "https://covidweb.isi.jhu.edu/developmentblog/Post2";
+const post2url = "https://covidweb.isi.jhu.edu/developmentblog/Simulation-Development";
   
 const message = "Check out this article from the Delineo Disease Modeling Project";
 

@@ -27,10 +27,10 @@ function App() {
                       <Route exact path="/simulator" component={Simulator} />
                       <Route exact path="/team" component={Team} />
                       <Route exact path="/developmentblog" component={DevelopmentBlog} />
-                      <Route exact path="/developmentblog/post1" component={Post1} />
-                      <Route exact path="/developmentblog/post2" component={Post2} />
-                      <Route exact path="/developmentblog/post3" component={Post3} />
-                      <Route exact path="/developmentblog/post4" component={Post4} />
+                      <Route exact path="/developmentblog/Machine-Learning-Website" component={Post1} />
+                      <Route exact path="/developmentblog/Simulation-Development" component={Post2} />
+                      <Route exact path="/developmentblog/Simulation-Website" component={Post3} />
+                      <Route exact path="/developmentblog/Wells-Riley-Equation" component={Post4} />
                       <Route exact path="/teamapplication" component={TeamApplication}/>
                   </Switch>
                   <Footer />
